@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js", //Apontar aonde vai o js depois de compilar
+        "target": "ES6", //Versão do ecmascript
+        "noEmitOnError": true //Não vai gerar o js se o ts tiver erros de compilação
+    },
+    "include": [
+        "app/**/*" //Apontar aonde estão os arquivos ts
+    ]
+}
