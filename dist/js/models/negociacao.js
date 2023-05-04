@@ -1,9 +1,3 @@
-/*
-    - Regras da Negociação
-        *Não pode ser modificada depois de criada
-        *Obrigatoriamente tem uma data, quantidade e valor
-        *Seu volume é calculado multiplicando-se a quantidade negociada no dia pelo valor negociado
- */
 export class Negociacao {
     constructor(_data, quantidade, valor) {
         this._data = _data;
@@ -16,5 +10,12 @@ export class Negociacao {
     }
     get volume() {
         return this.quantidade * this.valor;
+    }
+    static criaNegociacao(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        const data = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
+        return new Negociacao(data, quantidade, valor);
     }
 }

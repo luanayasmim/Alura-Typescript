@@ -13,14 +13,19 @@ export class NegociacaoController{
     private mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
-        this.inputData = document.querySelector('#data');
-        this.inputQuantidade = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
+        //Informar que a variável vai receber um HTMLInputElement de duas formas
+        this.inputData = <HTMLInputElement>document.querySelector('#data');
+        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
+        this.inputValor = document.querySelector('#valor') as HTMLInputElement;
         this.negociacoesView.update(this.negociacoes);
     }
 
     public adiciona(): void{
-        const negociacao = Negociacao.criaNegociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
+        const negociacao = Negociacao.criaNegociacao(
+            this.inputData.value, 
+            this.inputQuantidade.value, 
+            this.inputValor.value
+        );
 
         //Verificação de dia útil
         if(!this.verificaDiaUtil(negociacao.data)){
