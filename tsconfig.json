@@ -5,7 +5,8 @@
         "noEmitOnError": true, //Não vai gerar o js se o ts tiver erros de compilação
         "noImplicitAny": true, //Não permite que as variaveis e as propriedades sejam any
         "removeComments": true, //Remover os comentários na pasta dist
-        "strictNullChecks": true //Verifica se as variáveis podem ser nulas
+        "strictNullChecks": true, //Verifica se as variáveis podem ser nulas
+        "experimentalDecorators": true //Ativa o uso de decorators na aplicação
     },
     "include": [
         "app/**/*" //Apontar aonde estão os arquivos ts
