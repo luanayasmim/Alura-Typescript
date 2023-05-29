@@ -16,3 +16,12 @@ if(form){
 //const negociacoesView = new NegociacoesView();
 //const template = negociacoesView.template();
 //console.log(template);
+
+const botaoImportar = document.querySelector('#botao-importa');
+if(botaoImportar){
+    botaoImportar.addEventListener('click', ()=>{
+        controller.importarDados();
+    });
+}
+else
+    throw Error('Não foi possivel encontrar o botão');

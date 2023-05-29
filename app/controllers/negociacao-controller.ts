@@ -1,3 +1,4 @@
+import { NegociacoesService } from './../services/negociacoes-service.js';
 import { domInjector } from "../decorator/dom-injector.js";
 import { Inspect } from "../decorator/inspect.js";
 import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
@@ -17,6 +18,7 @@ export class NegociacaoController{
     private negociacoes = new Negociacoes(); // Quando se atribui o valor o typescript já resolve o tipo
     private negociacoesView = new NegociacoesView('#negociacoesView');
     private mensagemView = new MensagemView('#mensagemView');
+    private negociacoesService = new NegociacoesService();
 
     constructor() {
         this.negociacoesView.update(this.negociacoes);
@@ -40,6 +42,16 @@ export class NegociacaoController{
         this.negociacoes.adiciona(negociacao);
         this.atualizaView();
         this.limparFormulario();
+    }
+
+    public importarDados() : void {
+        this.negociacoesService.obterNegociacoesDoDia()
+        .then(negociacoesDeHoje =>{
+            for(let negociacao of negociacoesDeHoje){
+                this.negociacoes.adiciona(negociacao);
+            }
+            this.negociacoesView.update(this.negociacoes);
+        });
     }
 
     private limparFormulario(): void{
