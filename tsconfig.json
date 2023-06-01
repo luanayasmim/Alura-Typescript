@@ -6,7 +6,8 @@
         "noImplicitAny": true, //Não permite que as variaveis e as propriedades sejam any
         "removeComments": true, //Remover os comentários na pasta dist
         "strictNullChecks": true, //Verifica se as variáveis podem ser nulas
-        "experimentalDecorators": true //Ativa o uso de decorators na aplicação
+        "experimentalDecorators": true, //Ativa o uso de decorators na aplicação
+        "sourceMap": true //
     },
     "include": [
         "app/**/*" //Apontar aonde estão os arquivos ts
